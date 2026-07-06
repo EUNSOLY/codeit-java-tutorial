@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import com.example.demo.member.Administrator;
-import com.example.demo.member.Member;
 
 //@SpringBootApplication
 public class DemoApplication {
@@ -21,5 +20,4 @@ public class DemoApplication {
 		//      System.out.println(baron.name);         // 필드 중 name (접근제어자 private)
 
 	}
-
 }
