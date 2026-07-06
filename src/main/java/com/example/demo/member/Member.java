@@ -15,5 +15,9 @@ public class Member {
     public String getName() {
         return this.name;
     }
+
+    public String toString(){
+        return  String.format("Member(id=%s, name=%s, age=%s, email=%s", id, name, age,email);
+    }
 }
 
