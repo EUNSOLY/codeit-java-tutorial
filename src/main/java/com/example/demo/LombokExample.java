@@ -4,8 +4,10 @@ package com.example.demo;
 public class LombokExample {
 
     public static void main(String[] arge) {
-        PersonLombok person = new PersonLombok(1, "Aaron", 12, "aaron@example.com");
-        PersonLombok person2 = new PersonLombok(1, "Aaron", 24, "aaron@different.com");
+        adminPerson person = new adminPerson(1, "Aaron", 12, "aaron@example.com", "DEVELOPER");
+        adminPerson person2 = new adminPerson(1, "Aaron", 24, "aaron@different.com", "DESIGNER");
+
+
         System.out.println("---");
         System.out.println(person);              // 객체 저장 주소
         System.out.println(person.toString());   // 객체 저장 주소
