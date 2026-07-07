@@ -6,6 +6,7 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.Collections;
 
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
@@ -15,7 +16,7 @@ public class Administrator extends Member {
     /* private final */ LocalDate allocatedAt;
 
     public Administrator(Integer id, String name, int age, String email, String role) {
-        super(id, name, age, email);
+        super(id, name, age, email, Collections.emptyList());
         this.role = role;
         this.allocatedAt = LocalDate.now();
     }

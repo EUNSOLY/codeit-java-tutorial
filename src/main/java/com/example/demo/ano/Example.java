@@ -1,18 +1,23 @@
 package com.example.demo.ano;
 
 
+import java.util.List;
+
 public class Example {
     public static void main(String[] arge) {
 
         Member aaron = Member.builder()
                 .name("Aaron")
                 .email("aaron@example.com")
-                .build();
-        Member baron = Member.builder()
-//              .name("Unnamed")       // 빌더 사용 시 .name() 에 어떤값도 넣지 않으면 name 필드에는 "Unnamed" 가 설정된다.
-//              .email("Undefined")     // 빌더 사용 시 .email() 에 어떤값도 넣지 않으면 name 필드에는 "Undefined" 가 설정된다.
+                .favorites(List.of("Game", "Animation"))
                 .build();
 
+        Member baron = Member.builder()
+                .name("Baron")
+                .email("baron@example.com")
+                .favorite("Book")
+                .favorite("Cook")
+                .build();
 
         System.out.println("---");
         System.out.println(aaron);              // 객체
