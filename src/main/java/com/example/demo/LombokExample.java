@@ -9,5 +9,10 @@ public class LombokExample {
         System.out.println("---");
         System.out.println(person);              // 객체 저장 주소
         System.out.println(person.toString());   // 객체 저장 주소
+
+        System.out.println(person.getId());      // @Getter 클래스 단위로 적용하여 모든 필드 조회 가능
+        System.out.println(person.getName());    // @Getter (클래스 단위)
+        System.out.println(person.getAge());     // @Getter (클래스 단위)
+        System.out.println(person.getEmail());   // @Getter (클래스 단위)
     }
 }
