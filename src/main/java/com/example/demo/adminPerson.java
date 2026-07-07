@@ -6,7 +6,8 @@ import java.time.LocalDate;
 
 
 @ToString(callSuper = true)
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
+
 public class adminPerson extends PersonLombok {
     private String role;
     private LocalDate allocatedAt;
