@@ -17,7 +17,7 @@ public class Member {
     protected String email;
 
 
-    public static Member getInstance() {
+    public synchronized static Member getInstance() {
         if (Objects.isNull(instance)) {
             instance = new Member();
         }
