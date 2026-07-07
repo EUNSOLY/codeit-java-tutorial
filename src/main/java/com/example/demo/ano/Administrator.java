@@ -1,5 +1,6 @@
 package com.example.demo.ano;
 
+import com.example.demo.dto.MemberCreateRequestDto;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
