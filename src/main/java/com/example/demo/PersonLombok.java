@@ -14,4 +14,11 @@ public class PersonLombok {
     private int age;
     @Setter
     private String email;
+
+    public boolean equals(PersonLombok member) {
+        return this.id.equals(member.id) &&
+                this.name.equals(member.name) &&
+                this.age == member.age &&
+                this.email.equals(member.email);
+    }
 }
