@@ -4,7 +4,7 @@ package com.example.demo;
 public class LombokExample {
 
     public static void main(String[] arge) {
-        adminPerson person = new adminPerson(1, "Aaron", 10, "aaron@example.com", "DEVELOPER");
+        adminPerson person = new adminPerson(1, "Aaron", "DEVELOPER");
 
 
         System.out.println("---");
