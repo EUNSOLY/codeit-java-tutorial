@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@ToString
+@ToString(callSuper = true)
 public class adminPerson extends PersonLombok {
     private String role;
     private LocalDate allocatedAt;
