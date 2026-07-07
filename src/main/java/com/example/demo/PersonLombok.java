@@ -3,14 +3,14 @@ package com.example.demo;
 import lombok.*;
 
 @Getter
+@Setter
 @ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
-@RequiredArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class PersonLombok {
     @ToString.Include(name = "memberId")
-    private final Integer id;
-    @ToString.Include(rank = 1)
-    private final String name;
-    @Setter(AccessLevel.PRIVATE)
+    private Integer id;
+    @ToString.Include(rank = -1)
+    private String name;
     private int age;
     @Setter
     private String email;
