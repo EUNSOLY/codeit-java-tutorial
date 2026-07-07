@@ -5,7 +5,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"age", "email"})
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class PersonLombok {
     @ToString.Include(name = "memberId")
