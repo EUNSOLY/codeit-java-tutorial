@@ -3,10 +3,8 @@ package com.example.demo;
 import lombok.*;
 
 @Getter
-@ToString
+@ToString(exclude = {"age", "email"})
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-
-
 public class PersonLombok {
     private Integer id;
     private String name;
@@ -15,5 +13,5 @@ public class PersonLombok {
     @Setter
     private String email;
 
-    
+
 }
