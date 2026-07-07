@@ -1,9 +1,10 @@
 package com.example.demo;
 
+
 public class LombokExample {
 
     public static void main(String[] arge) {
-        PersonLombok person = new PersonLombok(1, "Aaron", 10, "aaron@example.com");
+        adminPerson person = new adminPerson(1, "Aaron", 10, "aaron@example.com", "DEVELOPER");
 
 
         System.out.println("---");
