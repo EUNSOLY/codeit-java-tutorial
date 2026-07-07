@@ -9,12 +9,14 @@ public class Example {
         Member aaron = Member.builder()
                 .name("Aaron")
                 .email("aaron@example.com")
+                .age(10)
                 .favorites(List.of("Game", "Animation"))
                 .build();
 
         Member baron = Member.builder()
                 .name("Baron")
                 .email("baron@example.com")
+                .age(40)
                 .favorite("Book")
                 .favorite("Cook")
                 .build();
