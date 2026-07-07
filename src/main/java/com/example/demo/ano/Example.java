@@ -6,9 +6,7 @@ public class Example {
         Member aaron = new Member(1, "Aaron", 10, "aaron@example.com");
 
         Member baron = Member.builder()
-             g   .id(2)
                 .name("Baron")
-                .age(20)
                 .email("baron@example.com")
                 .build();
 
