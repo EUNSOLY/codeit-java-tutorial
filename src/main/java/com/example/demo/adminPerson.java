@@ -9,8 +9,8 @@ public class adminPerson extends PersonLombok {
     private String role;
     private LocalDate allocatedAt;
 
-    public adminPerson(String role) {
-        super();
+    public adminPerson(Integer id, String name, int age, String email, String role) {
+        super(id, name, age, email);
         this.role = role;
         this.allocatedAt = LocalDate.now();
     }
