@@ -1,9 +1,9 @@
 package com.example.demo.ano;
 
 import lombok.*;
-import lombok.experimental.FieldDefaults;
 
 
+@Builder
 public class Member {
     protected Integer id;     // Reference Type 주소를 담는 그릇 : 객체가 담기며, NULL 이 들어갈 수 있다.
     protected String name;
@@ -15,9 +15,6 @@ public class Member {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.email = email;
-    }
-    public void setEmail(String email) {
         this.email = email;
     }
 
