@@ -3,7 +3,6 @@ package com.example.demo.ano;
 import lombok.*;
 
 
-@Builder
 public class Member {
     protected Integer id;     // Reference Type 주소를 담는 그릇 : 객체가 담기며, NULL 이 들어갈 수 있다.
     protected String name;
@@ -11,12 +10,12 @@ public class Member {
     protected String email;
 
 
-    public Member(Integer id, String name, int age, String email) {
-        this.id = id;
+    @Builder
+    protected Member(String name, String email) {
         this.name = name;
-        this.age = age;
         this.email = email;
     }
+
 
     public String toString() {
         return String.format("Member(id=%s, name=%s, age=%s, email=%s)", id, name, age, email);
