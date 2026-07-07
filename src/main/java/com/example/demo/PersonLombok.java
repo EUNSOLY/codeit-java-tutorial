@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
@@ -15,5 +12,9 @@ public class PersonLombok {
     @Setter
     private String email;
 
+
+    public String toString() {
+        return String.format("Member(id=%s, name=%s, age=%s, email=%s)", id, name, age, email);
+    }
 
 }
