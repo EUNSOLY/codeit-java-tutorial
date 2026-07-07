@@ -15,8 +15,7 @@ public class Administrator extends Member {
     /* private final */ LocalDate allocatedAt;
 
     public Administrator(Integer id, String name, int age, String email, String role) {
-        super();
-        this.name = name;
+        super(name);
         this.email = email;
         this.role = role;
         this.allocatedAt = LocalDate.now();
