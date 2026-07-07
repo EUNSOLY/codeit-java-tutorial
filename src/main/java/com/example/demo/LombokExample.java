@@ -5,7 +5,7 @@ public class LombokExample {
 
     public static void main(String[] arge) {
         adminPerson person = new adminPerson(1, "Aaron", 12, "aaron@example.com", "DEVELOPER");
-        adminPerson person2 = new adminPerson(1, "Aaron", 24, "aaron@different.com", "DESIGNER");
+        adminPerson person2 = new adminPerson(2, "Baron", 36, "baron@example.com", "DEVELOPER");
 
 
         System.out.println("---");
