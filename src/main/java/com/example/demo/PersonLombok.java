@@ -4,7 +4,7 @@ import lombok.*;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-@ToString(onlyExplicitlyIncluded = true)
+@ToString(onlyExplicitlyIncluded = true, includeFieldNames = false)
 public class PersonLombok {
     @ToString.Include(name = "memberId")
     private Integer id;
