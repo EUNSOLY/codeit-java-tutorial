@@ -4,9 +4,11 @@ import lombok.*;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
-@ToString(of = {"id", "name"})
+@ToString(onlyExplicitlyIncluded = true)
 public class PersonLombok {
+    @ToString.Include
     private Integer id;
+    @ToString.Include
     private String name;
     @Setter(AccessLevel.PRIVATE)
     private int age;
