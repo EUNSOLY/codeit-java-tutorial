@@ -5,4 +5,3 @@ public interface Hero {
 
     /*public abstract*/ void ultimate();
 }
-g

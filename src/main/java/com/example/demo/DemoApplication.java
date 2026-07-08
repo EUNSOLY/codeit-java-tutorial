@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import com.example.demo.game.OneCoinGameService;
+import com.example.demo.game.TwoCoinGameService;
+import com.example.demo.game.common.IGameService;
 import com.example.demo.hero.AgilityHero;
 import com.example.demo.hero.IntelligenceHero;
 import com.example.demo.hero.StrengthHero;
@@ -11,6 +14,10 @@ import java.util.Arrays;
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
+        IGameService onwGame = new TwoCoinGameService(new StrengthHero());
+        onwGame.play();
+
+//
         Hero strength = new StrengthHero();
         Hero agility = new AgilityHero();
         Hero intelligence = new IntelligenceHero();
