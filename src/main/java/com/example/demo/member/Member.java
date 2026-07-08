@@ -6,7 +6,7 @@ import java.util.List;
 
 @Getter
 @AllArgsConstructor
-public final class Member {
+public class Member {
     public static String MEMBER_TO_STRING_FORMAT = "Member(id=%s, name=%s, age=%s, email=%s)";
 
     private Integer id;
