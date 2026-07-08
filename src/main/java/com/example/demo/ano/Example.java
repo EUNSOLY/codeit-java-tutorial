@@ -14,6 +14,7 @@ public class Example {
         System.out.println(aaron);              // 객체
         System.out.println(aaron.toString());   // 객체
         System.out.println(aaron.getName());    // @Getter (@Value = 모든 필드에 대해 Getter 생성)
+        System.out.println(aaron.getName());    // @Getter (@Value = 모든 필드에 대해 Getter 생성)
 //      aaron.setName("Caron");                 // @Setter (@Value = Setter 미생성) - 어떤것도 호출 불가
 
         System.out.println("---");
