@@ -1,10 +1,6 @@
 package com.example.demo.ano;
 
 
-import com.example.demo.dto.MemberCreateRequestDto;
-
-import java.util.List;
-
 public class Example {
     public static void main(String[] arge) {
         Administrator aaron = new Administrator(1, "Aaron", 12, "aaron@example.com", "DEVELOPER");

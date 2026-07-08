@@ -11,7 +11,7 @@ public class Administrator extends Member {
     private LocalDate allocatedAt;
 
     public Administrator() {
-        super(1, "", 112, "");
+        super(1, "");
     }
 
     public String toString() {

@@ -7,7 +7,13 @@ import java.util.Arrays;
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
-        Member member = new Member(1, "Aaron", 10, "aaron@example.com");
+        Member member = new Member(1, "Aaron");
+
+        System.out.println(member.toString());   // 객체
+//      member.setId(2);                         // final 변수는 초기화(Initialized) 이후 변경될 수 없다.
+//      member.setName("Baron");                 // final 변수는 초기화(Initialized) 이후 변경될 수 없다.
+        member.setAge(10);                       // Non-final 변수는 언제든 Setter 호출이 가능하다.
+        member.setEmail("aaron@example.com");    // Non-final 변수는 언제든 Setter 호출이 가능하다.
 
         System.out.println("----");
         System.out.println(member.toString(member));        // * 앞글자 소문자 : 물론 이렇게 호출할 수 있겠지만, 정상사용은 아님        System.out.println(member.toString(member));

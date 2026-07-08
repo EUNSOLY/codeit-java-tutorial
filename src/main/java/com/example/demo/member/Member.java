@@ -1,22 +1,19 @@
 package com.example.demo.member;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
+@RequiredArgsConstructor
 public class Member {
     public static String MEMBER_TO_STRING_FORMAT = "Member(id=%s, name=%s, age=%s, email=%s)";
 
-    private Integer id;
-    private String name;
+    private final Integer id;
+    private final String name;
     private int age;
     private String email;
-
 
     public static String toString(Member member) {
         return String.format(MEMBER_TO_STRING_FORMAT, member.id, member.name, member.age, member.email);
