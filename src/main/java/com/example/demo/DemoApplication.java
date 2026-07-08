@@ -14,8 +14,10 @@ public class DemoApplication {
         System.out.println(Member.toString(member));        // * 앞글자 대문자 : Static 메서드는 이렇게 호출하는것이 정상이다.g        System.out.println(member.MEMBER_TO_STRING_FORMAT); // * 앞글자 소문자 : 물론 이렇게 호출할 수 있겠지만, 정상사용은 아님
         System.out.println(Member.MEMBER_TO_STRING_FORMAT); // * 앞글자 대문자 : Static 필드는 이렇게 호출하는것이 정상이다.
 
-        Member.Favorite nen_static_favorite_1 = member.new Favorite(Arrays.asList("Book", "Cook"));
-        Member.Favorite nen_static_favorite_2 = member.new Favorite(Arrays.asList("Book", "Cook"));
+        //      Member.Favorite non_static_favorite_1 = member.new Favorite(Arrays.asList("BOOK", "COOK"));
+//      Member.Favorite non_static_favorite_2 = new Member().new Favorite(Arrays.asList("BOOK", "COOK"));
+        Member.Favorite static_favorite = new Member.Favorite(Arrays.asList("BOOK", "COOK"));
+
 
     }
 }
