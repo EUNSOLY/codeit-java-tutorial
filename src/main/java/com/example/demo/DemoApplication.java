@@ -1,23 +1,16 @@
 package com.example.demo;
 
-import com.example.demo.member.Administrator;
+import com.example.demo.member.Member;
 
 //@SpringBootApplication
 public class DemoApplication {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
+        Member member = new Member(1, "Aaron", 10, "aaron@example.com");
 
-		Administrator aaron = new Administrator("Aaron", "aaron@example.com", "DEVELOPER");
-		Administrator baron = new Administrator("Baron", "baron@example.com", "DESIGNER");
-		System.out.println(aaron);              // 객체
-		System.out.println(aaron.getName());    // 필드 중 name
-		System.out.println(aaron.toString());   // 객체
-		//      System.out.println(aaron.name);         // 필드 중 name (접근제어자 private)
-
-		System.out.println(baron);              // 객체
-		System.out.println("---");
-		System.out.println(baron.toString());   // 객체
-		System.out.println(baron.getName());    // 필드 중 name
-		//      System.out.println(baron.name);         // 필드 중 name (접근제어자 private)
-
-	}
+        System.out.println("----");
+        System.out.println(member);
+        System.out.println(member.toString());
+        System.out.println(member.MEMBER_TO_STRING_FORMAT); // * 앞글자 소문자 : 물론 이렇게 호출할 수 있겠지만, 정상사용은 아님
+        System.out.println(Member.MEMBER_TO_STRING_FORMAT); // * 앞글자 대문자 : Static 필드는 이렇게 호출하는것이 정상이다.
+    }
 }
