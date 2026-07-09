@@ -1,5 +1,8 @@
 package com.example.demo.hero;
 
+import com.example.demo.hero.common.HeroCreateRepository;
+import com.example.demo.hero.common.HeroDeleteRepository;
+import com.example.demo.hero.common.HeroReadRepository;
 import com.example.demo.hero.common.HeroRepository;
 import lombok.*;
 
@@ -8,7 +11,7 @@ import java.util.Map;
 
 @Getter
 @RequiredArgsConstructor
-public class StrengthHeroRepository implements HeroRepository<StrengthHero, String> {
+public class StrengthHeroRepository implements HeroCreateRepository<StrengthHero, String>, HeroReadRepository<StrengthHero, String>, HeroDeleteRepository<StrengthHero, String> {
 
     public static Map<String, StrengthHero> repository = new HashMap<>();
 
