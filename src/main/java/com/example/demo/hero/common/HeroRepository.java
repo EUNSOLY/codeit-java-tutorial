@@ -7,3 +7,4 @@ public interface HeroRepository<T extends Hero, F> {
 
     void delete(F id);
 }
+
