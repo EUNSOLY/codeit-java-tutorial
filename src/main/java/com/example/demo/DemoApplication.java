@@ -41,11 +41,11 @@ public class DemoApplication {
         intelligenceRepository.save(new IntelligenceHero("Zeus"));
         intelligenceRepository.delete("Puck");
 
-        StrengthHero strength = strengthHeroRepository.findById("Slardar");
-        AgilityHero agility = agilityRepository.findById("Slark");
-        IntelligenceHero intelligence = intelligenceRepository.findById("Zeus");
+        Hero strength = strengthHeroRepository.findById("Slardar");
+        Hero agility = agilityRepository.findById("Slark");
+        Hero intelligence = intelligenceRepository.findById("Zeus");
 
-        strength.berserk(); // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
+//        strength.berserk(); // 인터페이스 다형성(Polymorphism) 상관없이 구체(구현)클래스 내 메서드 호출 가능
 
 
 //        IGameService onwGame = new TwoCoinGameService(new StrengthHero());
