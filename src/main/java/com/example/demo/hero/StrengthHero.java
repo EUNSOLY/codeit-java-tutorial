@@ -1,8 +1,17 @@
 package com.example.demo.hero;
 
 import com.example.demo.hero.common.Hero;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+@Getter
+@RequiredArgsConstructor
 public class StrengthHero implements Hero {
+    private final String name;
+
+    public void berserk() {
+        System.out.println("각성");
+    }
 
     @Override
     public void attack() {
@@ -14,7 +23,5 @@ public class StrengthHero implements Hero {
         System.out.println("지진 생성");
     }
 
-    public void berserk() {
-        System.out.println("각성");
-    }
+
 }
