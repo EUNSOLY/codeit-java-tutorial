@@ -48,13 +48,17 @@ public class DemoApplication {
 
 
         System.out.println(tvRemoteControl.getName());
-        
+
         tvRemoteControl.rightClick();
         tvRemoteControl.leftClick();
+        tvRemoteControl.powerOn();
+        tvRemoteControl.powerOff();
 
         System.out.println(radioRemoteControl.getName());
         radioRemoteControl.rightClick();
         radioRemoteControl.leftClick();
+        radioRemoteControl.powerOn();
+        radioRemoteControl.powerOff();
 
 
     }

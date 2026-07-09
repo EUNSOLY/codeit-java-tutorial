@@ -1,7 +1,5 @@
 package com.example.demo.temp;
 
-import lombok.RequiredArgsConstructor;
-
 
 public class TvRemoteControl extends RemoteControlAbstract {
     public TvRemoteControl(String name) {
