@@ -15,11 +15,11 @@ public class IntelligenceHeroRepository implements HeroRepository<IntelligenceHe
         return repository.get(name);
     }
 
-//    @Override
-//    public String save(IntelligenceHero hero) {
-//        repository.put(hero.getName(), hero);
-//        return hero.getName();
-//    }
+    @Override
+    public String save(IntelligenceHero hero) {
+        repository.put(hero.getName(), hero);
+        return hero.getName();
+    }
 
     public void delete(String name) {
         repository.remove(name);

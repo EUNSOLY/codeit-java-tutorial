@@ -11,6 +11,7 @@ public interface HeroRepository<T extends Hero, F> extends HeroCreateRepository<
     default F save(T hero) {
         print();
         throw new RuntimeException(EXCEPTION);
+
     }
 
 }

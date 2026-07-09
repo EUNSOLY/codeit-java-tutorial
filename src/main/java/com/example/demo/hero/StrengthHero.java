@@ -1,26 +1,29 @@
 package com.example.demo.hero;
 
 import com.example.demo.hero.common.Hero;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-@Getter
-@RequiredArgsConstructor
 public class StrengthHero extends Hero {
-    private final String name;
 
-    public void berserk() {
-        System.out.println("각성");
+    public StrengthHero(String name) {
+        super(name);
+    }
+
+    protected void printHero() {
+        System.out.print("[Strength Hero] ");
     }
 
     @Override
-    public void attack() {
+    protected void attack() {
         System.out.println("배쉬 어택");
     }
 
     @Override
-    public void ultimate() {
+    protected void ultimate() {
         System.out.println("지진 생성");
+    }
+
+    public void heroBerserk() {
+        System.out.println("각성");
     }
 
 
