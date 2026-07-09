@@ -18,11 +18,12 @@ public class StrengthHeroRepository implements HeroRepository<StrengthHero, Stri
         return repository.get(name);
     }
 
-//    @Override
-//    public String save(StrengthHero hero) {
-//        repository.put(hero.getName(), hero);
-//        return hero.getName();
-//    }
+    
+    @Override
+    public String save(StrengthHero hero) {
+        repository.put(hero.getName(), hero);
+        return hero.getName();
+    }
 
     @Override
     public void delete(String name) {
