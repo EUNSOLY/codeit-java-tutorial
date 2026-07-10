@@ -13,7 +13,7 @@ public class PaymentPrice extends OriginalPrice {
 
     @Override
     public void display() {
-        System.out.printf("상품(%s)의 가격은 %s 입니다.%n", super.name, super.price * TAX_RATE + this.deliveryPrice);
+        System.out.printf("상품(%s)의 가격은 %s 입니다.%n", super.name, (int) (super.price * TAX_RATE + this.deliveryPrice));
     }
 
 
