@@ -5,23 +5,15 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 
-public class IntelligenceHero extends Hero {
-
-    public IntelligenceHero(String name) {
-        super(name);
-    }
-
-    protected void printHero() {
-        System.out.print("[Intelligence Hero] ");
-    }
+public class IntelligenceHero implements Hero {
 
     @Override
-    protected void attack() {
+    public void attack() {
         System.out.println("파이어볼");
     }
 
     @Override
-    protected void ultimate() {
+    public void ultimate() {
         System.out.println("메테오");
     }
 }

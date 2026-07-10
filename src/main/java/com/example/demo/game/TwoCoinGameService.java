@@ -12,16 +12,16 @@ public class TwoCoinGameService implements IGameService {
 
     @Override
     public void play() {
-//        System.out.println("---- Gram Start ----");
-//
-//        hero.attack();
-//        hero.ultimate();
-//
-//        System.out.println("---- Gram step ----");
-//
-//        hero.attack();
-//        hero.ultimate();
-//
-//        System.out.println("---- Gram End ----");
+        System.out.println("---- Gram Start ----");
+
+        hero.attack();
+        hero.ultimate();
+
+        System.out.println("---- Gram step ----");
+
+        hero.attack();
+        hero.ultimate();
+
+        System.out.println("---- Gram End ----");
     }
 }

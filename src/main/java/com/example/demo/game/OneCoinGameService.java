@@ -12,8 +12,8 @@ public class OneCoinGameService implements IGameService {
     public void play() {
         System.out.println("---- Gram Start ----");
 
-//        hero.attack();
-//        hero.ultimate();
+        hero.attack();
+        hero.ultimate();
 
         System.out.println("---- Gram End ----");
 
