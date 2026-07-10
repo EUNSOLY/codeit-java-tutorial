@@ -2,16 +2,29 @@ package com.example.demo;
 
 import com.example.demo.hero.AgilityHero;
 import com.example.demo.hero.AgilityHeroRepository;
+import com.example.demo.hero.HeroBaseRepository;
 import com.example.demo.hero.common.Hero;
 import com.example.demo.hero.common.HeroRepository;
 import com.example.demo.prices.JapanPaymentPrice;
 import com.example.demo.prices.KoreaPaymentPrice;
 import com.example.demo.prices.OriginalPrice;
 
+import java.util.Arrays;
+
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
-        
+        HeroBaseRepository agilityHeroRepository = new AgilityHeroRepository();
+        agilityHeroRepository.create(new AgilityHero("Slark"));
+        agilityHeroRepository.create(new AgilityHero("Juggernaut"));
+        agilityHeroRepository.create(new AgilityHero("Draw Ranger"));
+        System.out.println("AgilityHero" + Arrays.stream(agilityHeroRepository.getHeroes()).map(Hero::getName).toList());
+
+        agilityHeroRepository.delete("Slark");
+
+        System.out.println("삭제 후 ===============");
+        System.out.println("AgilityHero" + Arrays.stream(agilityHeroRepository.getHeroes()).map(Hero::getName).toList());
+
 //        HeroRepository heroRepository = new AgilityHeroRepository();
 //        Hero selectedHero = heroRepository.findByName("Slark");
 //        selectedHero.attack();
