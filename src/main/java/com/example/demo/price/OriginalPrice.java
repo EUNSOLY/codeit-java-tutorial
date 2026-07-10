@@ -1,7 +1,6 @@
-package com.example.demo;
+package com.example.demo.price;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 @AllArgsConstructor
 public class OriginalPrice {

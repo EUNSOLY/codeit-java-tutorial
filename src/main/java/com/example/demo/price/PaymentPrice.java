@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.price;
 
 
 // @생성자에 관련된 어노테이션은 사용하지못한다 - 상속받았기 때문에 부모 클래스의 생성자를 함께 작성해야해서
