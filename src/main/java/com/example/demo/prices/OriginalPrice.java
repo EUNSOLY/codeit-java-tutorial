@@ -1,4 +1,4 @@
-package com.example.demo.price;
+package com.example.demo.prices;
 
 import lombok.AllArgsConstructor;
 
