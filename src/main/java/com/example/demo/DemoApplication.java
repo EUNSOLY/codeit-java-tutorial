@@ -14,6 +14,8 @@ public class DemoApplication {
         HeroRepository heroRepository = new AgilityHeroRepository();
         Hero selectedHero = heroRepository.findByName("Slark");
         selectedHero.attack();
+        heroRepository.delete("Slark");
+        Hero selectedHero2 = heroRepository.findByName("Slark");
 
 
         String name = "하리보 젤리";

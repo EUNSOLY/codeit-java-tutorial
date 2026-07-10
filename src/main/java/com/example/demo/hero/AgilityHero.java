@@ -1,14 +1,12 @@
 package com.example.demo.hero;
 
 import com.example.demo.hero.common.Hero;
-import com.example.demo.hero.common.HeroAttack;
-import com.example.demo.hero.common.HeroUltimate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class AgilityHero implements HeroAttack, HeroUltimate {
+public class AgilityHero implements Hero {
     private String name;
 
     @Override
