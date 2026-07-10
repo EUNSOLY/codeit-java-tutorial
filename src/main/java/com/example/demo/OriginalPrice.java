@@ -5,10 +5,8 @@ import lombok.Getter;
 
 @AllArgsConstructor
 public class OriginalPrice {
-    @Getter
-    private String name;
-    @Getter
-    private int price;
+    protected String name;
+    protected int price;
 
 
     public void display() {
