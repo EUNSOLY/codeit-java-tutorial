@@ -1,8 +1,15 @@
 package com.example.demo.hero;
 
+import com.example.demo.hero.common.BaseHero;
 import com.example.demo.hero.common.Hero;
 
-public class StrengthHero implements Hero {
+public class StrengthHero extends BaseHero {
+
+    public StrengthHero(String name) {
+        super(name);
+
+    }
+
     @Override
     public void attack() {
         System.out.println("배쉬 어택");

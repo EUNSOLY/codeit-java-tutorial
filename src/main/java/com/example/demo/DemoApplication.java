@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.hero.AgilityHero;
 import com.example.demo.hero.AgilityHeroRepository;
 import com.example.demo.hero.common.Hero;
 import com.example.demo.hero.common.HeroRepository;
@@ -10,17 +11,16 @@ import com.example.demo.prices.OriginalPrice;
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
-
-        HeroRepository heroRepository = new AgilityHeroRepository();
-        Hero selectedHero = heroRepository.findByName("Slark");
-        selectedHero.attack();
-        heroRepository.delete("Slark");
-        Hero selectedHero2 = heroRepository.findByName("Slark");
-
-
-        String name = "하리보 젤리";
-        int price = 2500;
-        int deliveryPrice = 2500;
+        
+//        HeroRepository heroRepository = new AgilityHeroRepository();
+//        Hero selectedHero = heroRepository.findByName("Slark");
+//        selectedHero.attack();
+//        heroRepository.delete("Slark");
+//        Hero selectedHero2 = heroRepository.findByName("Slark");
+//
+//        String name = "하리보 젤리";
+//        int price = 2500;
+//        int deliveryPrice = 2500;
 
 
 //        // OriginalPrice : 부모 클래스
