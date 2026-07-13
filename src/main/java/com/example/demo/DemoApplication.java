@@ -8,12 +8,23 @@ import com.example.demo.hero.common.HeroRepository;
 import com.example.demo.prices.JapanPaymentPrice;
 import com.example.demo.prices.KoreaPaymentPrice;
 import com.example.demo.prices.OriginalPrice;
+import com.example.demo.ramen.JinRamen;
+import com.example.demo.ramen.Ramen;
+import com.example.demo.ramen.SinRamen;
 
 import java.util.Arrays;
 
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
+        SinRamen sinRamen = new SinRamen();
+        sinRamen.boiling();
+        JinRamen jinRamen = new JinRamen();
+        jinRamen.boiling();
+
+    }
+
+    public static void backup(String[] args) {
         HeroBaseRepository agilityHeroRepository = new AgilityHeroRepository();
         agilityHeroRepository.create(new AgilityHero("Slark"));
         agilityHeroRepository.create(new AgilityHero("Juggernaut"));
