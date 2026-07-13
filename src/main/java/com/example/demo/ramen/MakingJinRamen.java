@@ -1,6 +1,6 @@
 package com.example.demo.ramen;
 
-public class JinRamen extends Ramen {
+public class MakingJinRamen extends MakingRamen {
     @Override
     protected String water() {
         return "수돗물";

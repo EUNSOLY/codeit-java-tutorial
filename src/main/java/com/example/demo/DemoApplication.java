@@ -4,23 +4,18 @@ import com.example.demo.hero.AgilityHero;
 import com.example.demo.hero.AgilityHeroRepository;
 import com.example.demo.hero.HeroBaseRepository;
 import com.example.demo.hero.common.Hero;
-import com.example.demo.hero.common.HeroRepository;
-import com.example.demo.prices.JapanPaymentPrice;
-import com.example.demo.prices.KoreaPaymentPrice;
-import com.example.demo.prices.OriginalPrice;
-import com.example.demo.ramen.JinRamen;
-import com.example.demo.ramen.Ramen;
-import com.example.demo.ramen.SinRamen;
+import com.example.demo.ramen.MakingJinRamen;
+import com.example.demo.ramen.MakingSinRamen;
 
 import java.util.Arrays;
 
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
-        SinRamen sinRamen = new SinRamen();
-        sinRamen.boiling();
-        JinRamen jinRamen = new JinRamen();
-        jinRamen.boiling();
+        MakingSinRamen makingSinRamen = new MakingSinRamen();
+        makingSinRamen.boiling();
+        MakingJinRamen makingJinRamen = new MakingJinRamen();
+        makingJinRamen.boiling();
 
     }
 

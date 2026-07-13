@@ -1,8 +1,8 @@
 package com.example.demo.ramen;
 
 // 행위 패턴 : 템플릿 메서드 패턴
-// 
-public class SinRamen extends Ramen {
+//
+public class MakingSinRamen extends MakingRamen {
     @Override
     protected String water() {
         return "에비앙";
