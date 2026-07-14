@@ -6,7 +6,7 @@ import com.example.demo.hero.common.Hero;
 import java.util.*;
 
 public abstract class BasicHeroRepository<T extends Hero> implements CrudRepository<String, T> {
-    private Map<String, T> heroes = new HashMap();
+    private Map<String, T> heroes = new HashMap<>();
 
     public BasicHeroRepository(List<T> heroes) {
         for (T h : heroes) {
