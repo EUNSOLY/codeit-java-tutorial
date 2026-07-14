@@ -15,7 +15,7 @@ public class OrderController {
         Integer orderId = order.getId();
 
         // (2) 결제 페이지 : 결제 정보 <- 구매 정보
-        String method = "CARD";
+        PaymentMethod method = PaymentMethod.CASH;
         paymentService.payment(orderId, method);
 
         // (3) 배송 : 구매 정보 내부에 있는 배송 정보가 계속 수정됨
