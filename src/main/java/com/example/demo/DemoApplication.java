@@ -6,28 +6,51 @@ import java.util.*;
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
+        /* Collection 4) Map 세트 */
+        Map<Integer, String> string_map = new HashMap<>();          // 빈 Map 선언 (String 요소)
+        string_map.put(1, "1");
+        string_map.put(2, "2");
+        string_map.put(3, "3");
+
+        /* 주의 : Arrays.asList 와 Map.of 으로 생성되는 Collection 은 Immutable 불변성이기에 수정 불가 - replace, put, remove 등 불가 */
+//        Map<Integer, String> string_map = Map.of(1, "1", 2, "2", 3, "3");
+
+        string_map.put(4, "4");                     // 추가
+        string_map.replace(2, "5");                 // 수정
+        string_map.remove(3);                       // 삭제
+        string_map.containsKey(1);                  // 포함
+        string_map.containsValue("1");              // 포함
+        string_map.entrySet();                      // - Entry = [Key, Value] (Set)
+        string_map.keySet();                        // - Key (Set)
+        string_map.values();                        // - Value (List)
+//        string_map.clear();                         // 리셋
+        string_map.isEmpty();                       // 검사
+        string_map.size();                          // 개수
+
+        System.out.println(string_map.get(1));                          // 조회
+
         /* Collection 3) Set 세트 */
 
         //      Set<String> string_set = new HashSet<>();                  // 빈 Set 선언 (String 요소)
         //      string_set.add("1");
         //      string_set.add("2");
         //      string_set.add("3");
-        Set<String> string_set = new HashSet<>(Arrays.asList("1", "2", "3"));
+//        Set<String> string_set = new HashSet<>(Arrays.asList("1", "2", "3"));
 
-        string_set.add("4");                        // 추가
-        string_set.remove("1");                  // 삭제
-        string_set.contains("1");                   // 포함
-        string_set.clear();                         // 리셋
-        string_set.isEmpty();                       // 검사
-        System.out.println(string_set.size());
-
-        Set<Integer> integer_set = new HashSet<>(Arrays.asList(1, 2, 3));
-        integer_set.add(4);                         // 추가
-        integer_set.remove(3);                      // 삭제
-        integer_set.contains(1);                    // 포함
-        integer_set.clear();                        // 리셋
-        integer_set.isEmpty();                      // 검사
-        integer_set.size();                         // 개수
+//        string_set.add("4");                        // 추가
+//        string_set.remove("1");                  // 삭제
+//        string_set.contains("1");                   // 포함
+//        string_set.clear();                         // 리셋
+//        string_set.isEmpty();                       // 검사
+//        System.out.println(string_set.size());
+//
+//        Set<Integer> integer_set = new HashSet<>(Arrays.asList(1, 2, 3));
+//        integer_set.add(4);                         // 추가
+//        integer_set.remove(3);                      // 삭제
+//        integer_set.contains(1);                    // 포함
+//        integer_set.clear();                        // 리셋
+//        integer_set.isEmpty();                      // 검사
+//        integer_set.size();                         // 개수
 
 //        int[] int_array = new int[3];                        // 길이 기반 Array 초기화 (기본형 타입)
 //        int[] int_array2 = {1, 2, 3};                        // 값 기반 Array 초기화 (기본형 타입)
