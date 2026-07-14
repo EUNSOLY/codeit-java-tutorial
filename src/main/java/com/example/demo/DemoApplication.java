@@ -60,6 +60,22 @@ public class DemoApplication {
         integet_array.size();
         System.out.println(integet_array);
 
+        integer_list.add(1);
+        integer_list.add(2);
+        integer_list.add(3);
+        integer_list.add(4);
+
+        integer_list.get(3);                        // 조회
+        integer_list.add(4);                        // 추가
+        integer_list.set(3, 5);                     // 수정
+        integer_list.remove(3);               // 삭제
+        integer_list.subList(0, 1);                 // 부분
+        integer_list.sort(Integer::compareTo);      // 나열
+        integer_list.contains(1);                   // 포함
+        integer_list.clear();                       // 리셋
+        integer_list.isEmpty();                     // 검사
+        integer_list.size();                        // 개수
+
 
     }
 
