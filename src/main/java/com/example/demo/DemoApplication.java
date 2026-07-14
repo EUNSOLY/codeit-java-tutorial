@@ -6,28 +6,34 @@ import java.util.*;
 //@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
+        OrderController orderController = new OrderController(
+                new OrderService(new OrderRepository()),
+                new PaymentService(new OrderRepository()),
+                new DeliveryService(new OrderRepository())
+        );
+        orderController.process();
         /* Collection 4) Map 세트 */
-        Map<Integer, String> string_map = new HashMap<>();          // 빈 Map 선언 (String 요소)
-        string_map.put(1, "1");
-        string_map.put(2, "2");
-        string_map.put(3, "3");
+//        Map<Integer, String> string_map = new HashMap<>();          // 빈 Map 선언 (String 요소)
+//        string_map.put(1, "1");
+//        string_map.put(2, "2");
+//        string_map.put(3, "3");
 
         /* 주의 : Arrays.asList 와 Map.of 으로 생성되는 Collection 은 Immutable 불변성이기에 수정 불가 - replace, put, remove 등 불가 */
 //        Map<Integer, String> string_map = Map.of(1, "1", 2, "2", 3, "3");
 
-        string_map.put(4, "4");                     // 추가
-        string_map.replace(2, "5");                 // 수정
-        string_map.remove(3);                       // 삭제
-        string_map.containsKey(1);                  // 포함
-        string_map.containsValue("1");              // 포함
-        string_map.entrySet();                      // - Entry = [Key, Value] (Set)
-        string_map.keySet();                        // - Key (Set)
-        string_map.values();                        // - Value (List)
-//        string_map.clear();                         // 리셋
-        string_map.isEmpty();                       // 검사
-        string_map.size();                          // 개수
+//        string_map.put(4, "4");                     // 추가
+//        string_map.replace(2, "5");                 // 수정
+//        string_map.remove(3);                       // 삭제
+//        string_map.containsKey(1);                  // 포함
+//        string_map.containsValue("1");              // 포함
+//        string_map.entrySet();                      // - Entry = [Key, Value] (Set)
+//        string_map.keySet();                        // - Key (Set)
+//        string_map.values();                        // - Value (List)
+////        string_map.clear();                         // 리셋
+//        string_map.isEmpty();                       // 검사
+//        string_map.size();                          // 개수
 
-        System.out.println(string_map.get(1));                          // 조회
+//        System.out.println(string_map.get(1));                          // 조회
 
         /* Collection 3) Set 세트 */
 
