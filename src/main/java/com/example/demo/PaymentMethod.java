@@ -18,4 +18,12 @@ public enum PaymentMethod {
     Double discount;
 
 
+    public static PaymentMethod from(String method) {
+        for (PaymentMethod m : PaymentMethod.values()) {
+            if (m.name().equals(method)) {
+                return m;
+            }
+        }
+        throw new RuntimeException("지정한 결제 종류가 맞지않습니다." + method);
+    }
 }
