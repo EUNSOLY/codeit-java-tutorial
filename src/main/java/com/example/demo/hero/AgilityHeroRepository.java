@@ -8,6 +8,4 @@ public class AgilityHeroRepository<T extends Hero> extends BasicHeroRepository<T
     public AgilityHeroRepository(T[] heroes) {
         super(heroes);
     }
-
-
 }

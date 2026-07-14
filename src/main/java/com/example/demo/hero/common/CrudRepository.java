@@ -13,5 +13,13 @@ public interface CrudRepository<T> {
         throw new RuntimeException("delete 메서드는 구현되지 않았습니다 - 이건 인터페이스 내 디폴트 메서드입니다");
     }
 
-    T findHeroByName(String slark);
+    default T findHeroByName(String name) {
+        throw new RuntimeException("findHeroByName 메서드는 구현되지 않았습니다 - 이건 인터페이스 내 디폴트 메서드입니다");
+    }
+
+    ;
+
+    default T findByName(String name) {
+        throw new RuntimeException("findByName 메서드는 구현되지 않았습니다 - 이건 인터페이스 내 디폴트 메서드입니다");
+    }
 }
