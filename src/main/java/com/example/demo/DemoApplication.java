@@ -34,26 +34,18 @@ public class DemoApplication {
         Stream<Player> playerStream = players.stream();
 //        System.out.println(" -- Stream.forEach -- ");
 //        playerStream.forEach((player) -> System.out.println(player));
-        Stream<Player> streamFilter = playerStream.filter(new Predicate<Player>() {
-            @Override
-            public boolean test(Player player) {
-                System.out.println("첫번째 조건을 실행합니다.");
-                return player.getSide().equals(Side.RADIANT);
-            }
-        }).filter(new Predicate<Player>() {
-            @Override
-            public boolean test(Player player) {
-                System.out.println("두번째 조건을 실행합니다.");
-                return player.getKill() >= 5;
-            }
-        });
+        Stream<Player> streamFilter = playerStream
+                .filter((player) -> {
+                    System.out.println("첫번째 조건을 실행합니다.");
+                    return player.getSide().equals(Side.RADIANT);
+                })
+                .filter((player) -> {
+                    System.out.println("두번째 조건을 실행합니다.");
+                    return player.getKill() >= 5;
+                });
+
         System.out.println("필터가 완료되고, 실행시킵니다.");
-        streamFilter.forEach(new Consumer<Player>() {
-            @Override
-            public void accept(Player player) {
-                System.out.println(player.toString());
-            }
-        });
+        streamFilter.forEach((player) -> System.out.println(player.toString()));
     }
 
 }
