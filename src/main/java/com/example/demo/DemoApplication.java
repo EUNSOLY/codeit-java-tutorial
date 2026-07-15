@@ -34,7 +34,7 @@ public class DemoApplication {
         Stream<Player> playerStream = players.stream();
 //        System.out.println(" -- Stream.forEach -- ");
 //        playerStream.forEach((player) -> System.out.println(player));
-        Stream<Player> streamFilter = playerStream
+        playerStream
                 .filter((player) -> {
                     System.out.println("첫번째 조건을 실행합니다.");
                     return player.getSide().equals(Side.RADIANT);
@@ -42,10 +42,11 @@ public class DemoApplication {
                 .filter((player) -> {
                     System.out.println("두번째 조건을 실행합니다.");
                     return player.getKill() >= 5;
+                })
+                .forEach((player) -> {
+                    System.out.println("forEach가 실행됩니다");
+                    System.out.println(player.toString());
                 });
-
-        System.out.println("필터가 완료되고, 실행시킵니다.");
-        streamFilter.forEach((player) -> System.out.println(player.toString()));
     }
 
 }
