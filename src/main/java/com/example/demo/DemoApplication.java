@@ -34,15 +34,16 @@ public class DemoApplication {
         List<Player> players = new ArrayList<>(PLAYER.values());
         Stream<Player> playerStream = players.stream();
         System.out.println(" -- Stream.forEach -- ");
-        Stream<Hero> intermediate = playerStream
+        Stream<String> intermediate = playerStream
                 .peek(player -> System.out.println(" >> 첫번째 중간 연산자가 실행됩니다 << "))
                 .filter(player -> player.getSide().equals(Side.RADIANT))
                 .peek(player -> System.out.println(" >> 두번째 중간 연산자가 실행됩니다 << "))
                 .filter(player -> player.getKill() >= 5)
-                .map(player -> player.getPickedHero());
+                .map(player -> player.getPickedHero())
+                .map(hero -> hero.getName());
 
         System.out.println("필터가 완료되고, 실행시킵니다.");
-        intermediate.forEach((hero) -> System.out.println(hero.toString()));
+        intermediate.forEach((heroName) -> System.out.println(heroName));
 
     }
 
