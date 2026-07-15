@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.hero.AgilityHero;
 import com.example.demo.hero.StrengthHero;
+import com.example.demo.hero.common.Hero;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -33,15 +34,15 @@ public class DemoApplication {
         List<Player> players = new ArrayList<>(PLAYER.values());
         Stream<Player> playerStream = players.stream();
         System.out.println(" -- Stream.forEach -- ");
-        playerStream.forEach((player) -> System.out.println(player));
-        Stream<Player> intermediate = playerStream
-                .peek(player -> System.out.println("첫번째 조건을 실행합니다."))
+        Stream<Hero> intermediate = playerStream
+                .peek(player -> System.out.println(" >> 첫번째 중간 연산자가 실행됩니다 << "))
                 .filter(player -> player.getSide().equals(Side.RADIANT))
-                .peek(player -> System.out.println("두번째 조건을 실행합니다."))
-                .filter(player -> player.getKill() >= 5);
+                .peek(player -> System.out.println(" >> 두번째 중간 연산자가 실행됩니다 << "))
+                .filter(player -> player.getKill() >= 5)
+                .map(player -> player.getPickedHero());
 
         System.out.println("필터가 완료되고, 실행시킵니다.");
-        intermediate.forEach((player) -> System.out.println(player.toString()));
+        intermediate.forEach((hero) -> System.out.println(hero.toString()));
 
     }
 
