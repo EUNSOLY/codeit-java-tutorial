@@ -39,11 +39,11 @@ public class DemoApplication {
                 .filter(player -> player.getSide().equals(Side.RADIANT))
                 .peek(player -> System.out.println(" >> 두번째 중간 연산자가 실행됩니다 << "))
                 .filter(player -> player.getKill() >= 5)
-                .map(player -> player.getPickedHero())
-                .map(hero -> hero.getName());
+                .map(Player::getPickedHero)
+                .map(Hero::getName);
 
         System.out.println("필터가 완료되고, 실행시킵니다.");
-        intermediate.forEach((heroName) -> System.out.println(heroName));
+        intermediate.forEach(System.out::println);
 
     }
 
