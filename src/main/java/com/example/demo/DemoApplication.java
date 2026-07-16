@@ -9,48 +9,60 @@ import java.util.stream.Stream;
 
 //@SpringBootApplication
 public class DemoApplication {
-    public static void main(String[] args) {
-        List<Player> playerList = new ArrayList<>(Game.HISTORY.getFirst().getPlayers().values());
 
-        System.out.println(" -- Stream.forEach -- ");
-        Stream<Player> playerStream = playerList.stream();
-//        Stream<String> intermediate = playerStream
-//        List<Hero> intermediate = playerStream
-//        Set<Hero> intermediate = playerStream
-//        Map<String, Hero> intermediate = playerStream
-        String intermediate = playerStream
-                .filter(player -> player.getSide().equals(Side.RADIANT))
-                .filter(player -> player.getKill() >= 5)
-                .map(Player::getPickedHero)
-                .map(Hero::getName)
-                .sorted(new Comparator<String>() {
-                    @Override
-                    public int compare(String o1, String o2) {
-                        return o1.compareTo(o2);
-                    }
-                })
-//                .sorted(new Comparator<Hero>() {
+    public static void main(String[] args) {
+        // flatMap
+        Stream<Player> playerList = Game.HISTORY.stream().flatMap(game -> game.getPlayers().values().stream());
+        playerList.peek((p) -> System.out.println("첫번쨰 중간 연산을 시작합니다." + p))
+                .map(Player::getPickedHero) // 여기서 이제 Stream<Hero> 타입 변경
+                .map(Hero::getName) // Stream<String> 타입 변경
+                .forEach(System.out::println);
+
+
+    }
+//    public static void main(String[] args) {
+//        List<Player> playerList = new ArrayList<>(Game.HISTORY.getFirst().getPlayers().values());
+//
+//        System.out.println(" -- Stream.forEach -- ");
+//        Stream<Player> playerStream = playerList.stream();
+////        Stream<String> intermediate = playerStream
+////        List<Hero> intermediate = playerStream
+////        Set<Hero> intermediate = playerStream
+////        Map<String, Hero> intermediate = playerStream
+//        String intermediate = playerStream
+//                .filter(player -> player.getSide().equals(Side.RADIANT))
+//                .filter(player -> player.getKill() >= 5)
+//                .map(Player::getPickedHero)
+//                .map(Hero::getName)
+//                .sorted(new Comparator<String>() {
 //                    @Override
-//                    public int compare(Hero o1, Hero o2) {
-//                        return o1.getName().compareTo(o2.getName());
+//                    public int compare(String o1, String o2) {
+//                        return o1.compareTo(o2);
 //                    }
 //                })
-//                .map(Hero::getName)
-                .reduce("래디언트에서 5킬 이상을 달성한 영웅들은 : ",
-                        (accumulated, heroName) -> {
-                            return accumulated + ", " + heroName;
-                        });
-
-//                .collect(Collectors.toMap(
-//                        (hero -> hero.getName()),
-//                        (hero -> hero)
-//                ));
-//                .collect(Collectors.toSet())
-//                .map(Hero::getName)
-//                .forEach(System.out::println);
-//                .collect(Collectors.toList());
-
-        System.out.println(intermediate);
-    }
+////                .sorted(new Comparator<Hero>() {
+////                    @Override
+////                    public int compare(Hero o1, Hero o2) {
+////                        return o1.getName().compareTo(o2.getName());
+////                    }
+////                })
+////                .map(Hero::getName)
+//                .reduce("래디언트에서 5킬 이상을 달성한 영웅들은 : ",
+//                        (accumulated, heroName) -> {
+//                            return accumulated + ", " + heroName;
+//                        });
+//
+////                .collect(Collectors.toMap(
+////                        (hero -> hero.getName()),
+////                        (hero -> hero)
+////                ));
+////                .collect(Collectors.toSet())
+////                .map(Hero::getName)
+////                .forEach(System.out::println);
+////                .collect(Collectors.toList());
+//
+//        System.out.println(intermediate);
+//
+//    }
 
 }
