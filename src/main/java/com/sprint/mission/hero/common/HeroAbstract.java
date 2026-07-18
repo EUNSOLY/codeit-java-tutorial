@@ -1,0 +1,53 @@
+package com.sprint.mission.hero.common;
+
+
+import com.sprint.mission.hero.entity.BaseEntity;
+import lombok.ToString;
+
+
+public abstract class HeroAbstract extends BaseEntity implements IfHero {
+    protected String name;
+    private int level;
+    protected int hp;
+    protected int attack;
+    private int gold;
+
+
+    @Override
+    public void changeName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void levelUp() {
+        this.level++;
+    }
+
+    @Override
+    public void earnGold(int gold) {
+        this.gold += gold;
+
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        this.hp -= damage;
+
+    }
+
+    @Override
+    public void heal(int hp) {
+        this.hp += hp;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Hero( \n   " +
+                        "id=%s, createAt=%s, updateAt=%s \n   " +
+                        "name=%s, level=%s, hp=%s, attack=%s, gold=%s)",
+                super.getUUid(), super.getCreatedAt(), super.getUpdatedAt(),
+                this.name, this.level, this.hp, this.attack, this.gold);
+    }
+
+}
