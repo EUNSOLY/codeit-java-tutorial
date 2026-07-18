@@ -2,7 +2,9 @@ package com.sprint.mission.hero.common;
 
 
 import com.sprint.mission.hero.entity.BaseEntity;
+import lombok.Getter;
 
+@Getter
 public abstract class HeroAbstract extends BaseEntity implements IfHero {
     private String name;
     private int level;
