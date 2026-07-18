@@ -2,8 +2,6 @@ package com.sprint.mission.hero.common;
 
 
 import com.sprint.mission.hero.entity.BaseEntity;
-import lombok.ToString;
-
 
 public abstract class HeroAbstract extends BaseEntity implements IfHero {
     protected String name;
@@ -46,7 +44,7 @@ public abstract class HeroAbstract extends BaseEntity implements IfHero {
                 "Hero( \n   " +
                         "id=%s, createAt=%s, updateAt=%s \n   " +
                         "name=%s, level=%s, hp=%s, attack=%s, gold=%s)",
-                super.getUUid(), super.getCreatedAt(), super.getUpdatedAt(),
+                super.getId(), super.getCreatedAt(), super.getUpdatedAt(),
                 this.name, this.level, this.hp, this.attack, this.gold);
     }
 
