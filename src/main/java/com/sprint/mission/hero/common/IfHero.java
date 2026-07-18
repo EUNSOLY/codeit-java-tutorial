@@ -4,6 +4,12 @@ public interface IfHero {
     // 이름 변경
     void changeName(String name);
 
+    // 체력 변경
+    void changeAttack(int attack);
+
+    // 공격력 변경
+    void changeHp(int hp);
+
     // 레벨 증가
     void levelUp();
 

@@ -4,16 +4,26 @@ package com.sprint.mission.hero.common;
 import com.sprint.mission.hero.entity.BaseEntity;
 
 public abstract class HeroAbstract extends BaseEntity implements IfHero {
-    protected String name;
+    private String name;
     private int level;
-    protected int hp;
-    protected int attack;
+    private int hp;
+    private int attack;
     private int gold;
 
 
     @Override
     public void changeName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public void changeAttack(int attack) {
+        this.attack = attack;
+    }
+
+    @Override
+    public void changeHp(int hp) {
+        this.hp = hp;
     }
 
     @Override
