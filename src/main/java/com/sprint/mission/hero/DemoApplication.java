@@ -1,8 +1,7 @@
 package com.sprint.mission.hero;
 
 import com.sprint.mission.hero.common.HeroRepository;
-import com.sprint.mission.hero.entity.ArcherHero;
-import com.sprint.mission.hero.entity.WarriorHero;
+import com.sprint.mission.hero.entity.hero.WarriorHero;
 import com.sprint.mission.hero.repository.WarriorHeroRepository;
 
 public class DemoApplication {
