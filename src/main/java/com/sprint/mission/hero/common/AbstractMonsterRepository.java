@@ -2,7 +2,7 @@ package com.sprint.mission.hero.common;
 
 import java.util.*;
 
-public abstract class AbstractMonsterRepository<T extends MonsterAbstract> implements CRUDRepository<T> {
+public abstract class AbstractMonsterRepository<T extends AbstractMonster> implements ImplCRUDRepository<T> {
     private final Map<UUID, T> monsterRepo = new HashMap<>();
 
     @Override

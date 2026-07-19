@@ -1,8 +1,8 @@
 package com.sprint.mission.hero.entity.monster;
 
-import com.sprint.mission.hero.common.MonsterAbstract;
+import com.sprint.mission.hero.common.AbstractMonster;
 
-public class Dragon extends MonsterAbstract {
+public class Dragon extends AbstractMonster {
     public Dragon(String name) {
         super.changeName(name);
         super.changeHp(3000); // 드래곤 체력

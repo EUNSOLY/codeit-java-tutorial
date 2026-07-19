@@ -7,7 +7,11 @@ import com.sprint.mission.hero.entity.hero.WarriorHero;
 import com.sprint.mission.hero.entity.monster.Dragon;
 import com.sprint.mission.hero.entity.monster.Goblin;
 import com.sprint.mission.hero.entity.quest.Quest;
-import com.sprint.mission.hero.repository.*;
+import com.sprint.mission.hero.repository.hero.ArcherHeroRepository;
+import com.sprint.mission.hero.repository.hero.MageHeroRepository;
+import com.sprint.mission.hero.repository.hero.WarriorHeroRepository;
+import com.sprint.mission.hero.repository.monster.MonsterRepository;
+import com.sprint.mission.hero.repository.quest.QuestRepository;
 
 import java.util.Comparator;
 import java.util.List;

@@ -1,24 +1,18 @@
 package com.sprint.mission.hero.common;
 
-public interface HeroImpl {
+public interface ImplMonster {
     // 이름 변경
     void changeName(String name);
 
     // 공격력 변경
     void changeAttack(int attack);
 
+    // 처치 보상금
+    void changeRewardGold(int rewardGold);
+
     // 체력 변경
     void changeHp(int hp);
 
-    // 레벨 증가
-    void levelUp();
-
-    // 골드 획득
-    void earnGold(int gold);
-
-    // 공격을 받아 체력을 감소시킴
+    // 공격을 받아 체력이 감소합니다.
     void takeDamage(int damage);
-
-    // 체력 회복
-    void heal(int hp);
 }

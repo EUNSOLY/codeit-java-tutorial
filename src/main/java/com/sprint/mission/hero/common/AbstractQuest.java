@@ -6,14 +6,15 @@ import lombok.Getter;
 import java.util.UUID;
 
 @Getter
-public abstract class QuestAbstract extends BaseEntity implements QuestImpl {
+public abstract class AbstractQuest
+        extends BaseEntity implements ImplQuest {
     private String title;
     private String description;
     private UUID heroId;
     private UUID monsterId;
     private boolean completed;
 
-    protected QuestAbstract(String title, String description) {
+    protected AbstractQuest(String title, String description) {
         super();
         this.title = title;
         this.description = description;
