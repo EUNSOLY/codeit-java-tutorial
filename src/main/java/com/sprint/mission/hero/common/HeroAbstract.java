@@ -55,7 +55,8 @@ public abstract class HeroAbstract extends BaseEntity implements HeroImpl {
         return String.format(
                 "Hero( \n   " +
                         "id=%s, createAt=%s, updateAt=%s \n   " +
-                        "name=%s, level=%s, hp=%s, attack=%s, gold=%s)",
+                        "name=%s, level=%s, hp=%s, attack=%s, gold=%s" +
+                        ")\n",
                 super.getId(), super.getCreatedAt(), super.getUpdatedAt(),
                 this.name, this.level, this.hp, this.attack, this.gold);
     }

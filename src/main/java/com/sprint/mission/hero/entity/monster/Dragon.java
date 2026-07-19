@@ -5,7 +5,9 @@ import com.sprint.mission.hero.common.MonsterAbstract;
 public class Dragon extends MonsterAbstract {
     public Dragon(String name) {
         super.changeName(name);
-        super.changeHp(1500); // 고블린 체력
-        super.changeAttack(150); // 고블린 공격력
+        super.changeHp(3000); // 드래곤 체력
+        super.changeAttack(200); // 드래곤 공격력
+        super.changeRewardGold(200); // 드래곤 처치 시 획든 골드
+
     }
 }

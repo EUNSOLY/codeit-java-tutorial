@@ -22,6 +22,11 @@ public abstract class MonsterAbstract extends BaseEntity implements MonsterImpl 
     }
 
     @Override
+    public void changeRewardGold(int rewardGold) {
+        this.rewardGold = rewardGold;
+    }
+
+    @Override
     public void changeHp(int hp) {
         this.hp = hp;
     }
@@ -38,7 +43,8 @@ public abstract class MonsterAbstract extends BaseEntity implements MonsterImpl 
         return String.format(
                 "Monster( \n   " +
                         "id=%s, createAt=%s, updateAt=%s \n   " +
-                        "name=%s, hp=%s, attack=%s, rewardGold=%s)",
+                        "name=%s, hp=%s, attack=%s, rewardGold=%s" +
+                        ")\n",
                 super.getId(), super.getCreatedAt(), super.getUpdatedAt(),
                 this.name, this.hp, this.attack, this.rewardGold);
     }

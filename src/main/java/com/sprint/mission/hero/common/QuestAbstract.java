@@ -49,9 +49,9 @@ public abstract class QuestAbstract extends BaseEntity implements QuestImpl {
         return String.format(
                 "Quest( \n   " +
                         "id=%s, createAt=%s, updateAt=%s \n   " +
-                        "title=%s, description=%s, heroId=%s, monsterId=%s \n   " +
-                        ")",
+                        "title=%s, description=%s, heroId=%s, monsterId=%s, completed=%s \n" +
+                        ")\n",
                 super.getId(), super.getCreatedAt(), super.getUpdatedAt(),
-                this.title, this.description, this.heroId, this.monsterId);
+                this.title, this.description, this.heroId, this.monsterId, this.completed);
     }
 }
