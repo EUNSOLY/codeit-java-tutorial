@@ -4,12 +4,6 @@ public interface ImplHero {
     // 이름 변경
     void changeName(String name);
 
-    // 공격력 변경
-    void changeAttack(int attack);
-
-    // 체력 변경
-    void changeHp(int hp);
-
     // 레벨 증가
     void levelUp();
 
@@ -21,4 +15,7 @@ public interface ImplHero {
 
     // 체력 회복
     void heal(int hp);
+
+    // 공격
+    int attack();
 }

@@ -11,9 +11,10 @@
 - Git과 GitHub을 활용하여 프로젝트를 관리할 수 있다.
 - RPG 게임의 도메인 모델을 설계하고 Java로 구현할 수 있다.
 - 인터페이스를 설계하고 구현체를 구현할 수 있다.
-- 싱글톤 패턴을 구현할 수 있다.
+- 추상 클래스와 인터페이스를 활용하여 객체지향 설계를 적용할 수 있다.
 - Java Collections Framework(JCF)를 이용하여 데이터를 생성, 조회, 수정, 삭제할 수 있다.
 - Stream API를 이용하여 데이터를 조회하고 정렬할 수 있다.
+- Repository와 Service 계층을 분리하여 역할에 맞는 구조를 설계할 수 있다.
 - (심화) 서비스 간 의존 관계를 이해하고 팩토리 패턴을 활용하여 의존성을 관리할 수 있다.
 
 ---
@@ -24,9 +25,9 @@
 - [ ] Hero 도메인 구현
 - [ ] Monster 도메인 구현
 - [ ] Quest 도메인 구현
-- [ ] 서비스 인터페이스 설계
+- [ ] Repository 구현
+- [ ] Service 구현
 - [ ] CRUD 구현
-- [ ] JCF 기반 저장소 구현
 - [ ] Stream API 구현
 - [ ] Hero와 Monster 전투 구현
 - [ ] Quest 수행 구현
@@ -64,11 +65,11 @@ com.sprint.mission.hero.entity
 
 Hero, Monster, Quest는 RPG 게임을 구성하는 핵심 도메인입니다.
 
-- **Hero** : 플레이어가 조작하는 캐릭터입니다.
-- **Monster** : Hero가 전투를 수행하는 대상입니다.
-- **Quest** : Hero가 수행해야 하는 임무입니다.
+- **Hero** : 플레이어가 조작하는 캐릭터
+- **Monster** : Hero가 전투를 수행하는 대상
+- **Quest** : Hero가 수행해야 하는 임무
 
-모든 도메인은 공통적으로 Entity의 역할을 가지며 UUID를 통해 식별됩니다.
+모든 도메인은 UUID를 통해 식별되는 Entity입니다.
 
 ---
 
@@ -99,117 +100,113 @@ Hero, Monster, Quest는 RPG 게임을 구성하는 핵심 도메인입니다.
 # 🦸 Hero
 
 > 플레이어가 직접 조작하는 캐릭터입니다.
->
-> 몬스터를 처치하고 퀘스트를 수행하여 성장하며,
->
-> 골드를 획득하고 레벨을 올릴 수 있습니다.
+
+몬스터를 처치하고 퀘스트를 수행하며 성장합니다.
 
 ### 필드
 
-| 필드        | 타입     | 설명           |
-|-----------|--------|--------------|
-| id        | UUID   | Hero의 고유 식별자 |
-| name      | String | Hero 이름      |
-| level     | int    | 현재 레벨        |
-| hp        | int    | 현재 체력        |
-| attack    | int    | 공격력          |
-| gold      | int    | 보유 골드        |
-| createdAt | Long   | 생성 시간        |
-| updatedAt | Long   | 수정 시간        |
+| 필드        | 타입     | 설명       |
+|-----------|--------|----------|
+| id        | UUID   | Hero 식별자 |
+| name      | String | 이름       |
+| level     | int    | 레벨       |
+| hp        | int    | 체력       |
+| attack    | int    | 공격력      |
+| gold      | int    | 보유 골드    |
+| createdAt | Long   | 생성 시간    |
+| updatedAt | Long   | 수정 시간    |
 
-### 메서드(Behavior)
+### Behavior
 
-| 메서드                    | 설명                 |
-|------------------------|--------------------|
-| levelUp()              | Hero의 레벨을 증가시킵니다.  |
-| earnGold(int gold)     | 골드를 획득합니다.         |
-| takeDamage(int damage) | 공격을 받아 체력을 감소시킵니다. |
-| heal(int hp)           | 체력을 회복합니다.         |
-| update(...)            | Hero 정보를 수정합니다.    |
+| 메서드                    | 설명         |
+|------------------------|------------|
+| levelUp()              | 레벨 증가      |
+| earnGold(int gold)     | 골드 획득      |
+| takeDamage(int damage) | 피해를 입음     |
+| heal(int hp)           | 체력 회복      |
+| update(...)            | Hero 정보 수정 |
 
 ---
 
 # 👹 Monster
 
 > Hero가 전투를 통해 처치해야 하는 몬스터입니다.
->
-> 몬스터마다 체력, 공격력, 보상이 다르며,
-> 처치하면 Hero가 보상을 획득합니다.
 
-## 필드
+### 필드
 
-| 필드         | 타입     | 설명              |
-|------------|--------|-----------------|
-| id         | UUID   | Monster의 고유 식별자 |
-| name       | String | 몬스터 이름          |
-| hp         | int    | 체력              |
-| attack     | int    | 공격력             |
-| rewardGold | int    | 처치 시 획득하는 골드    |
-| createdAt  | Long   | 생성 시간           |
-| updatedAt  | Long   | 수정 시간           |
+| 필드         | 타입     | 설명          |
+|------------|--------|-------------|
+| id         | UUID   | Monster 식별자 |
+| name       | String | 이름          |
+| hp         | int    | 체력          |
+| attack     | int    | 공격력         |
+| rewardGold | int    | 처치 보상       |
+| createdAt  | Long   | 생성 시간       |
+| updatedAt  | Long   | 수정 시간       |
 
-### 행위(Behavior)
+### Behavior
 
-| 메서드                    | 설명                 |
-|------------------------|--------------------|
-| takeDamage(int damage) | 공격을 받아 체력이 감소합니다.  |
-| update(...)            | Monster 정보를 수정합니다. |
+| 메서드                    | 설명         |
+|------------------------|------------|
+| takeDamage(int damage) | 피해를 입음     |
+| update(...)            | Monster 수정 |
 
 ---
 
 # 📜 Quest
 
-> Hero가 수행해야 하는 임무입니다.
->
-> Quest는 특정 Hero에게 할당되며,
-> 특정 Monster를 처치하는 등의 목표를 가질 수 있습니다.
+> Hero가 수행하는 임무입니다.
 
-## 필드
+### 필드
 
-| 필드          | 타입      | 설명             |
-|-------------|---------|----------------|
-| id          | UUID    | Quest의 고유 식별자  |
-| title       | String  | 퀘스트 이름         |
-| description | String  | 퀘스트 설명         |
-| heroId      | UUID    | 퀘스트를 수행하는 Hero |
-| monsterId   | UUID    | 처치 대상 Monster  |
-| completed   | boolean | 완료 여부          |
-| createdAt   | Long    | 생성 시간          |
-| updatedAt   | Long    | 수정 시간          |
+| 필드          | 타입      | 설명         |
+|-------------|---------|------------|
+| id          | UUID    | Quest 식별자  |
+| title       | String  | 퀘스트 이름     |
+| description | String  | 설명         |
+| heroId      | UUID    | 수행 Hero    |
+| monsterId   | UUID    | 대상 Monster |
+| completed   | boolean | 완료 여부      |
+| createdAt   | Long    | 생성 시간      |
+| updatedAt   | Long    | 수정 시간      |
 
-### 행위(Behavior)
+### Behavior
 
-| 메서드         | 설명                 |
-|-------------|--------------------|
-| complete()  | 퀘스트를 완료 상태로 변경합니다. |
-| update(...) | Quest 정보를 수정합니다.   |
+| 메서드         | 설명       |
+|-------------|----------|
+| complete()  | 완료 처리    |
+| update(...) | Quest 수정 |
 
 ---
 
-# 🛠 서비스 설계
+# 📦 Repository 설계
 
 패키지
 
 ```text
-com.sprint.mission.hero.service
+com.sprint.mission.hero.repository
 ```
 
-서비스 인터페이스
+Repository는 **데이터 저장소의 역할**을 담당합니다.
 
-- HeroService
-- MonsterService
-- QuestService
+각 Repository는 Java Collections Framework(HashMap)를 이용하여 데이터를 저장합니다.
 
----
+예시
 
-## CRUD
+``` text
+ArcherHeroRepository
+MageHeroRepository
+WarriorHeroRepository
+GoblinRepository
+QuestRepository
+```
 
-모든 서비스는 아래 기능을 제공합니다.
+공통 기능
 
 ```java
-create();
+save();
 
-find();
+findById();
 
 findAll();
 
@@ -220,43 +217,32 @@ delete();
 
 ---
 
-# 💾 서비스 구현
+# 🛠 Service 설계
 
 패키지
 
 ```text
-com.sprint.mission.hero.service.jcf
+com.sprint.mission.hero.service
 ```
 
-구현체
+Service는 Repository를 이용하여 **비즈니스 로직을 수행**합니다.
 
-- JCFHeroService
-- JCFMonsterService
-- JCFQuestService
+예를 들어
 
----
+- Hero 생성
+- Quest 완료
+- Hero와 Monster 전투
+- Hero 레벨업
+- Stream 조회
 
-### 저장소
-
-Java Collections Framework를 사용하여 데이터를 저장합니다.
-
-```java
-private final Map<UUID, Hero> data;
-
-private final Map<UUID, Monster> data;
-
-private final Map<UUID, Quest> data;
-```
-
-- 생성자에서 초기화합니다.
-- HashMap을 사용합니다.
+등의 역할을 담당합니다.
 
 ---
 
 # ▶️ 메인 클래스 구현
 
 ```text
-JavaApplication
+DemoApplication
 ```
 
 메인 메서드에서 다음 기능을 테스트합니다.
@@ -267,11 +253,7 @@ JavaApplication
 - [ ] 단건 조회
 - [ ] 전체 조회
 - [ ] 수정
-- [ ] 수정 확인
 - [ ] 삭제
-- [ ] 삭제 확인
-
----
 
 ## Monster
 
@@ -279,21 +261,15 @@ JavaApplication
 - [ ] 단건 조회
 - [ ] 전체 조회
 - [ ] 수정
-- [ ] 수정 확인
 - [ ] 삭제
-- [ ] 삭제 확인
-
----
 
 ## Quest
 
 - [ ] 생성
 - [ ] 단건 조회
 - [ ] 전체 조회
-- [ ] 수정
-- [ ] 완료 처리
+- [ ] 완료
 - [ ] 삭제
-- [ ] 삭제 확인
 
 ---
 
@@ -303,23 +279,19 @@ JavaApplication
 
 - [ ] 레벨 높은 순 조회
 - [ ] 골드 높은 순 조회
-- [ ] 레벨 10 이상 Hero 조회
+- [ ] 레벨 10 이상 조회
 - [ ] 이름 검색
-
----
 
 ## Monster
 
 - [ ] 공격력 높은 순 조회
 - [ ] 보상 높은 순 조회
 
----
-
 ## Quest
 
 - [ ] 완료된 Quest 조회
 - [ ] 미완료 Quest 조회
-- [ ] 특정 Hero의 Quest 조회
+- [ ] Hero별 Quest 조회
 
 ---
 
@@ -327,20 +299,18 @@ JavaApplication
 
 ## Hero가 Quest 수행
 
-메서드
-
 ```java
 completeQuest(heroId, questId)
 ```
 
-### 검증
+검증
 
-- [ ] Hero 존재 여부
-- [ ] Quest 존재 여부
-- [ ] 이미 완료된 Quest인지 확인
-- [ ] Quest의 Hero와 동일한 Hero인지 확인
+- Hero 존재
+- Quest 존재
+- 완료 여부 확인
+- Hero 일치 여부 확인
 
-### 성공
+성공
 
 - Quest 완료
 - Hero Gold 증가
@@ -349,32 +319,25 @@ completeQuest(heroId, questId)
 
 ---
 
-# ⚔ Hero와 Monster 전투
-
-메서드
+## Hero와 Monster 전투
 
 ```java
 battle(heroId, monsterId)
 ```
 
-### 검증
+전투
 
-- Hero 존재
-- Monster 존재
+- Hero 선공
+- Monster 반격
+- HP 감소
+- 둘 중 HP가 0 이하가 될 때까지 반복
 
-### 전투
-
-- Hero가 먼저 공격합니다.
-- Monster가 반격합니다.
-- HP를 감소시킵니다.
-- 둘 중 한 명의 HP가 0 이하가 될 때까지 반복합니다.
-
-### 승리
+승리
 
 - Gold 획득
-- 레벨업 조건 확인
+- Level Up 확인
 
-### 패배
+패배
 
 - Hero HP = 0
 
@@ -382,39 +345,22 @@ battle(heroId, monsterId)
 
 # 💉 의존성 주입
 
-QuestService는 HeroService와 MonsterService를 생성자를 통해 주입받습니다.
+Service는 Repository를 생성자를 통해 주입받습니다.
 
 ```java
-public JCFQuestService(
-        HeroService heroService,
-        MonsterService monsterService
+public HeroService(
+        HeroRepository repository
 )
 ```
 
----
-
-# 🏭 팩토리 패턴 (심화)
-
-ServiceFactory를 구현합니다.
+QuestService는 HeroRepository와 MonsterRepository를 함께 사용할 수 있습니다.
 
 ```java
-HeroService heroService();
-
-MonsterService monsterService();
-
-QuestService questService();
-```
-
-Main에서는 Factory를 이용하여 객체를 생성합니다.
-
-```java
-ServiceFactory factory = new ServiceFactory();
-
-HeroService heroService = factory.heroService();
-
-MonsterService monsterService = factory.monsterService();
-
-QuestService questService = factory.questService();
+public QuestService(
+        HeroRepository heroRepository,
+        MonsterRepository monsterRepository,
+        QuestRepository questRepository
+)
 ```
 
 ---
@@ -422,60 +368,29 @@ QuestService questService = factory.questService();
 # 🚀 추가 도전 과제
 
 - [ ] Item 시스템
-- [ ] Inventory 구현
-- [ ] Equipment 구현
-- [ ] Hero 경험치 시스템
-- [ ] 직업(Warrior, Mage, Archer)
+- [ ] Inventory
+- [ ] Equipment
+- [ ] Hero 경험치
+- [ ] 직업 시스템
 - [ ] 스킬 시스템
-- [ ] 포션 사용
 - [ ] 보스 몬스터
 - [ ] 던전 시스템
-- [ ] 랭킹 시스템
 - [ ] JSON 저장 및 불러오기
-
----
-
-# 📂 패키지 구조
-
-```text
-com.sprint.mission.hero
-│
-├── entity
-│   ├── Hero.java
-│   ├── Monster.java
-│   └── Quest.java
-│
-├── service
-│   ├── HeroService.java
-│   ├── MonsterService.java
-│   └── QuestService.java
-│
-├── service.jcf
-│   ├── JCFHeroService.java
-│   ├── JCFMonsterService.java
-│   └── JCFQuestService.java
-│
-├── factory
-│   └── ServiceFactory.java
-│
-└── JavaApplication.java
-```
 
 ---
 
 # ✅ 최종 구현 체크리스트
 
-## 기본 기능
+## 기본
 
 - [ ] 프로젝트 생성
 - [ ] Hero 구현
 - [ ] Monster 구현
 - [ ] Quest 구현
+- [ ] Repository 구현
+- [ ] Service 구현
 - [ ] CRUD 구현
-- [ ] JCF 저장소 구현
 - [ ] 메인 테스트
-
----
 
 ## Stream API
 
@@ -483,26 +398,11 @@ com.sprint.mission.hero
 - [ ] 검색
 - [ ] 조건 조회
 
----
-
-## 심화 기능
+## 심화
 
 - [ ] Quest 수행
 - [ ] Hero와 Monster 전투
 - [ ] 의존성 주입
-- [ ] 팩토리 패턴
-
----
-
-## 도전 과제
-
-- [ ] Inventory
-- [ ] Equipment
-- [ ] Item
-- [ ] Boss Monster
-- [ ] Dungeon
-- [ ] JSON 저장
-- [ ] JSON 불러오기
 
 ---
 
@@ -521,6 +421,7 @@ Quest : Goblin Hunt
 ========== 전투 ==========
 Arthur attacks Goblin!
 Goblin attacks Arthur!
+
 Arthur Win!
 
 + Gold 100
@@ -533,4 +434,4 @@ Quest Complete!
 ---
 
 > **Happy Coding! 🦸⚔️**
-> 객체지향 설계와 Java의 핵심 개념을 RPG 프로젝트를 통해 재미있게 학습해보세요.
+> 객체지향 설계와 Repository-Service 계층 구조를 RPG 프로젝트를 통해 학습해보세요.

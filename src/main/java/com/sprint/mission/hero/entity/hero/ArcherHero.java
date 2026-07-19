@@ -2,11 +2,19 @@ package com.sprint.mission.hero.entity.hero;
 
 import com.sprint.mission.hero.common.AbstractHero;
 
-// 플레이어가 조작하는 캐릭터입니다.
+// 궁수
 public class ArcherHero extends AbstractHero {
-    public ArcherHero(String name, int attack, int hp) {
-        super.changeName(name);
-        super.changeAttack(attack);
-        super.changeHp(hp);
+    public static final int INIT_HP = 100;
+    public static final int INIT_ATTACK = 10;
+
+    public ArcherHero(String name) {
+        super(name, INIT_HP, INIT_ATTACK);
+    }
+
+    @Override
+    public int attack() {
+        System.out.println(super.getName() + "궁수님이 공격을 시전합니다. 공격력은 : " + super.getAttack() + "입니다.");
+        return super.getAttack();
+
     }
 }

@@ -8,8 +8,16 @@ import lombok.Getter;
 public abstract class AbstractMonster extends BaseEntity implements ImplMonster {
     private String name; // 이름
     private int hp; // 체력
-    private int attack; // 공격력
-    private int rewardGold; // 처치 시 획득하는 골드
+    private final int attack; // 공격력
+    private final int rewardGold; // 처치 시 획득하는 골드
+
+    protected AbstractMonster(String name, int hp, int attack, int rewardGold) {
+        super();
+        this.name = name;
+        this.hp = hp;
+        this.attack = attack;
+        this.rewardGold = rewardGold;
+    }
 
     @Override
     public void changeName(String name) {
@@ -17,25 +25,15 @@ public abstract class AbstractMonster extends BaseEntity implements ImplMonster 
     }
 
     @Override
-    public void changeAttack(int attack) {
-        this.attack = attack;
-    }
-
-    @Override
-    public void changeRewardGold(int rewardGold) {
-        this.rewardGold = rewardGold;
-    }
-
-    @Override
-    public void changeHp(int hp) {
-        this.hp = hp;
-    }
-
-
-    @Override
     public void takeDamage(int damage) {
+        System.out.println(this.name + "가 데미지를 받았습니다 체력이 " + damage + "만큼 감소합니다.");
         this.hp -= damage;
+    }
 
+    // 몬스터가 죽으면 몬스터 처치 보상금 반환
+    @Override
+    public int claimRewardGold() {
+        return this.rewardGold;
     }
 
     @Override
