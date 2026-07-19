@@ -2,8 +2,8 @@ package com.sprint.mission.hero.common;
 
 import java.util.*;
 
-public abstract class QuestRepository<T extends QuestAbstract> implements CRUDRepository<T> {
-    Map<UUID, T> questRepo = new HashMap<>();
+public abstract class AbstractQuestRepository<T extends QuestAbstract> implements CRUDRepository<T> {
+    private final Map<UUID, T> questRepo = new HashMap<>();
 
     @Override
     public void create(T t) {
