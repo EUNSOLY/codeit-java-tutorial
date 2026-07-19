@@ -4,7 +4,7 @@ import com.sprint.mission.hero.entity.BaseEntity;
 
 import java.util.*;
 
-public abstract class AbstractRepository<T extends BaseEntity> implements ImplCRUDRepository<T> {
+public abstract class RepositoryAbstract<T extends BaseEntity> implements RepositoryImpl<T> {
     protected final Map<UUID, T> repo = new HashMap<>();
 
     @Override

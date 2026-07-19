@@ -1,8 +1,8 @@
 package com.sprint.mission.hero.repository;
 
 
-import com.sprint.mission.hero.common.AbstractMonster;
-import com.sprint.mission.hero.common.AbstractRepository;
+import com.sprint.mission.hero.common.MonsterAbstract;
+import com.sprint.mission.hero.common.RepositoryAbstract;
 
-public class MonsterRepository extends AbstractRepository<AbstractMonster> {
+public class MonsterRepository extends RepositoryAbstract<MonsterAbstract> {
 }

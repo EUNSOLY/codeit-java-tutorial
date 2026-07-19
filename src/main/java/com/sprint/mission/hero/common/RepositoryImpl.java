@@ -3,7 +3,7 @@ package com.sprint.mission.hero.common;
 import java.util.List;
 import java.util.UUID;
 
-public interface ImplCRUDRepository<T> {
+public interface RepositoryImpl<T> {
     // 생성
     void save(T t);
 

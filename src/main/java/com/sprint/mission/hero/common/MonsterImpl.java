@@ -1,6 +1,6 @@
 package com.sprint.mission.hero.common;
 
-public interface ImplMonster {
+public interface MonsterImpl {
     // 이름 변경
     void changeName(String name);
 

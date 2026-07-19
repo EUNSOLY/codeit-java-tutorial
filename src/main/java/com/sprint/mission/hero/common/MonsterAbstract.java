@@ -5,13 +5,13 @@ import com.sprint.mission.hero.entity.BaseEntity;
 import lombok.Getter;
 
 @Getter
-public abstract class AbstractMonster extends BaseEntity implements ImplMonster {
+public abstract class MonsterAbstract extends BaseEntity implements MonsterImpl {
     private String name; // 이름
     private int hp; // 체력
     private final int attack; // 공격력
     private final int rewardGold; // 처치 시 획득하는 골드
 
-    protected AbstractMonster(String name, int hp, int attack, int rewardGold) {
+    protected MonsterAbstract(String name, int hp, int attack, int rewardGold) {
         super();
         this.name = name;
         this.hp = hp;

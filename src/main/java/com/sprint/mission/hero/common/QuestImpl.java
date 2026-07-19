@@ -2,7 +2,7 @@ package com.sprint.mission.hero.common;
 
 import java.util.UUID;
 
-public interface ImplQuest {
+public interface QuestImpl {
     // 이름 변경
     void changeName(String title);
 

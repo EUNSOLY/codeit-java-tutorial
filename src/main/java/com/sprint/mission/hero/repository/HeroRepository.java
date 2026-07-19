@@ -1,9 +1,9 @@
 package com.sprint.mission.hero.repository;
 
-import com.sprint.mission.hero.common.AbstractHero;
-import com.sprint.mission.hero.common.AbstractRepository;
+import com.sprint.mission.hero.common.HeroAbstract;
+import com.sprint.mission.hero.common.RepositoryAbstract;
 
-public class HeroRepository extends AbstractRepository<AbstractHero> {
+public class HeroRepository extends RepositoryAbstract<HeroAbstract> {
 
 
 }

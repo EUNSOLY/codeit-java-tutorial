@@ -4,14 +4,14 @@ import com.sprint.mission.hero.entity.BaseEntity;
 import lombok.Getter;
 
 @Getter
-public abstract class AbstractHero extends BaseEntity implements ImplHero {
+public abstract class HeroAbstract extends BaseEntity implements HeroImpl {
     private String name;
     private int level;
     private int hp;
     private int attack;
     private int gold;
 
-    protected AbstractHero(String name, int hp, int attack) {
+    protected HeroAbstract(String name, int hp, int attack) {
         super();
         this.level = 1;
         this.name = name;

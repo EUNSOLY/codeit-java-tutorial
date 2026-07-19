@@ -1,9 +1,9 @@
 package com.sprint.mission.hero.entity.hero;
 
-import com.sprint.mission.hero.common.AbstractHero;
+import com.sprint.mission.hero.common.HeroAbstract;
 
 // 전사
-public class WarriorHero extends AbstractHero {
+public class WarriorHero extends HeroAbstract {
     public static final int INIT_HP = 100;
     public static final int INIT_ATTACK = 25;
 

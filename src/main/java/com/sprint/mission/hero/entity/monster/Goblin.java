@@ -1,8 +1,8 @@
 package com.sprint.mission.hero.entity.monster;
 
-import com.sprint.mission.hero.common.AbstractMonster;
+import com.sprint.mission.hero.common.MonsterAbstract;
 
-public class Goblin extends AbstractMonster {
+public class Goblin extends MonsterAbstract {
     public Goblin(String name) {
         super(name, 100, 15, 550);
     }
