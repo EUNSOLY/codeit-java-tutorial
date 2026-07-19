@@ -9,16 +9,15 @@ import java.util.UUID;
 public abstract class QuestAbstract extends BaseEntity implements QuestImpl {
     private String title;
     private String description;
-    private final UUID heroId;
-    private final UUID monsterId;
+    private UUID heroId;
+    private UUID monsterId;
     private boolean completed;
 
-    protected QuestAbstract(String title, String description, UUID heroId, UUID monsterId) {
+    protected QuestAbstract(String title, String description) {
         super();
         this.title = title;
         this.description = description;
-        this.heroId = heroId;
-        this.monsterId = monsterId;
+
     }
 
     @Override
@@ -36,9 +35,13 @@ public abstract class QuestAbstract extends BaseEntity implements QuestImpl {
         if (this.completed) {
             throw new RuntimeException("이미 완료된 퀘스트 입니다.");
         }
-
         this.completed = true;
+    }
 
+    @Override
+    public void assignHeroAndMonster(UUID heroId, UUID monsterId) {
+        this.heroId = heroId;
+        this.monsterId = monsterId;
     }
 
     @Override
