@@ -4,6 +4,21 @@ import java.io.*;
 
 public class BufferedReaderWriterExample {
     public static void main(String[] args) {
+
+        //// 아래 코드는 버퍼 크기 조정하는 방법으로 대용량 파일일수록 큰 버퍼 세팅
+        // 기본 버퍼 크기 8192 -> 8KB
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("file.txt"))) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // 커스텀 크기 16KB
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("file.txt"), 16384)) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("example.txt"))) {
             String line;
 
