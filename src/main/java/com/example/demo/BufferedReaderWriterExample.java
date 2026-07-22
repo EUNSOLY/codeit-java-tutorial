@@ -15,10 +15,17 @@ public class BufferedReaderWriterExample {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
-//            throw new RuntimeException(e);
+//            throw new RuntimeException(e);드
             e.printStackTrace();
         }
 
-        
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("output.txt"))) {
+            bufferedWriter.write("안녕 File I/O야");
+            bufferedWriter.newLine(); // 줄바꿈
+            bufferedWriter.write("Using BufferedWriter for better performance");
+            bufferedWriter.newLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

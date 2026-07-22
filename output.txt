@@ -1,1 +1,2 @@
-안녕 File I/O--
+안녕 File I/O야
+Using BufferedWriter for better performance
