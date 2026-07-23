@@ -22,6 +22,7 @@ public class BufferedReaderWriterExample {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("example.txt"))) {
             String line;
 
+            
             while ((line = bufferedReader.readLine()) != null) {
                 // 한줄씩 읽다가 파일이 끝이면 null 반환
                 System.out.println(line); // 한줄씩 출력
